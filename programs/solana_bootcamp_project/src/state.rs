@@ -1,14 +1,14 @@
 use anchor_lang::prelude::*;
 
 #[account]
-pub struct Event {
-    organizer: Pubkey,
-    name: String,
-    description: String,
-    location: String,
-    date: i64,
-    ticket_quantity: u32,
-    ticket_price: u64,
-    tickets_minted: u32,
-    soul_bound_token_mint: Pubkey,
+pub struct EventContract {
+    pub organizer: Pubkey,
+    pub name: String,
+    pub description: String,
+    pub location: String,
+    pub date: i64,
+    pub ticket_quantity: u32,
+    pub ticket_price: u64,
+    pub tickets_minted: u32,
+    pub soul_bound_token_mint: String,
 }

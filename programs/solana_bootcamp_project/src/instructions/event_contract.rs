@@ -1,22 +1,8 @@
 use crate::state::*;
 use anchor_lang::prelude::*;
 
-#[derive(Accounts)]
-pub struct CreateEvent<'info> {
-    #[account(init,payer=user,space=8+32+104+804)]
-    pub event: Account<'info, Event>,
-    #[account(mut)]
-    pub user: Signer<'info>,
-    pub system_program: Program<'info, System>,
-    #[account(address = anchor_spl::token::ID)]
-    pub token_program: Program<'info, Token>, // Program account for token operations
-
-    #[account(mut)]
-    pub sbt_mint: Account<'info, Mint>, // The Soulbound Token mint account
-}
-
 pub fn proccess_create_event(
-    ctx: Context<CreateEvent>,
+    ctx: Context<CreateEventContract>,
     organizer: Pubkey,
     name: String,
     description: String,
@@ -49,3 +35,18 @@ pub fn proccess_create_event(
 
     Ok(())
 }
+
+#[derive(Accounts)]
+pub struct CreateEventContract<'info> {
+    #[account(init,payer=user,space=8+32+8+16+16+16+16+16)]
+    pub event: Account<'info, EventContract>,
+    #[account(mut)]
+    pub user: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
+// #[account(address = anchor_spl::token::ID)]
+// pub token_program: Program<'info, Token>, // Program account for token operations
+
+// #[account(mut)]
+// pub sbt_mint: Account<'info, Mint>, // The Soulbound Token mint account

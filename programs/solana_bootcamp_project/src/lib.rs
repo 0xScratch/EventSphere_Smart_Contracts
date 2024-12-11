@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 // use anchor_spl::token::{self, Mint, Token};
 
 declare_id!("97MbJZuRnS8WFsT3AwC9eQgJNKuCKEyEopyPnhoPuCs2");
+use instructions::*;
 
 mod instructions;
 mod state;
@@ -12,7 +13,7 @@ pub mod solana_bootcamp_project {
     use super::*;
 
     pub fn create_event(
-        ctx: Context<CreateEvent>,
+        ctx: Context<CreateEventContract>,
         organizer: Pubkey,
         name: String,
         description: String,
@@ -22,7 +23,7 @@ pub mod solana_bootcamp_project {
         ticket_price: u64,
         tickets_minted: u32,
     ) -> Result<()> {
-        instructions::event::proccess_create_event(
+        proccess_create_event(
             ctx,
             organizer,
             name,
@@ -32,7 +33,6 @@ pub mod solana_bootcamp_project {
             ticket_quantity,
             ticket_price,
             tickets_minted,
-        );
-        Ok(())
+        )
     }
 }
