@@ -14,5 +14,5 @@ pub fn handler(ctx: Context<GetUserTickets>) -> Result<()> {
 #[derive(Accounts)]
 pub struct GetUserTickets<'info> {
     pub user: Signer<'info>,
-    pub event: Account<'info, EventAccount>,
+    pub event: Account<'info, EventContract>,
 }

@@ -1,6 +1,4 @@
 mod errors;
-mod instructions;
-mod state;
 
 use anchor_lang::prelude::*;
 // use anchor_spl::token::{self, Mint, Token};

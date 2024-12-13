@@ -11,11 +11,6 @@ pub struct EventContract {
     pub ticket_price: u64,
     pub tickets_minted: u32,
     pub soul_bound_token_mint: String,
-#[derive(Default)]
-pub struct EventAccount {
-    pub authority: Pubkey,
-    pub total_tickets: u32,
-    pub available_tickets: u32,
 }
 
 #[account]
