@@ -1,7 +1,16 @@
 use anchor_lang::prelude::*;
 
-//TODO: replace with real event account
 #[account]
+pub struct EventContract {
+    pub organizer: Pubkey,
+    pub name: String,
+    pub description: String,
+    pub location: String,
+    pub date: i64,
+    pub ticket_quantity: u32,
+    pub ticket_price: u64,
+    pub tickets_minted: u32,
+    pub soul_bound_token_mint: String,
 #[derive(Default)]
 pub struct EventAccount {
     pub authority: Pubkey,
