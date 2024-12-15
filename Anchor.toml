@@ -5,14 +5,14 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-solana_bootcamp_project = "97MbJZuRnS8WFsT3AwC9eQgJNKuCKEyEopyPnhoPuCs2"
+solana_bootcamp_project = "DUV1ET47i14AqZnJD1N4CRiQ2X8fJNcPvJ3iXDisfDAz"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "devnet"
+wallet = "wallet-id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
