@@ -39,10 +39,10 @@ pub mod solana_bootcamp_project {
     }
 
     pub fn purchase_tickets(ctx: Context<PurchaseTickets>, quantity: u32) -> Result<()> {
-        instructions::purchase::handler(ctx, quantity)
+        purchase::handler(ctx, quantity)
     }
 
     pub fn get_user_tickets(ctx: Context<GetUserTickets>) -> Result<()> {
-        instructions::get_tickets::handler(ctx)
+        get_tickets::handler(ctx)
     }
 }
