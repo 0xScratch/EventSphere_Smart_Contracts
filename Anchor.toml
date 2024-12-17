@@ -5,7 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-solana_bootcamp_project = "97MbJZuRnS8WFsT3AwC9eQgJNKuCKEyEopyPnhoPuCs2"
+solana_bootcamp_project = "61jHGreVeYkjDpe1sDSrYFXVmisVkPgdngCwQMYYW4QJ"
 
 [registry]
 url = "https://api.apr.dev"

@@ -3,7 +3,7 @@ mod errors;
 use anchor_lang::prelude::*;
 // use anchor_spl::token::{self, Mint, Token};
 
-declare_id!("97MbJZuRnS8WFsT3AwC9eQgJNKuCKEyEopyPnhoPuCs2");
+declare_id!("61jHGreVeYkjDpe1sDSrYFXVmisVkPgdngCwQMYYW4QJ");
 use instructions::*;
 
 mod instructions;
