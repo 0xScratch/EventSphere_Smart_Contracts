@@ -1,6 +1,7 @@
 use crate::errors::*;
 use crate::state::*;
 use anchor_lang::prelude::*;
+use anchor_lang::solana_program;
 
 pub fn handler(ctx: Context<PurchaseTickets>, quantity: u32) -> Result<()> {
     require!(quantity <= 5, TicketingError::ExceedsMaxTickets);
@@ -11,6 +12,24 @@ pub fn handler(ctx: Context<PurchaseTickets>, quantity: u32) -> Result<()> {
         event.tickets_minted + quantity <= event.ticket_quantity,
         TicketingError::NoTicketsAvailable
     );
+    let payment_amount = event
+        .ticket_price
+        .checked_mul(quantity as u64)
+        .ok_or(TicketingError::InvalidQuantity)?;
+
+    // Transfer SOL from user to event organizer
+    solana_program::program::invoke(
+        &solana_program::system_instruction::transfer(
+            &ctx.accounts.user.key(),
+            &event.organizer,
+            payment_amount,
+        ),
+        &[
+            ctx.accounts.user.to_account_info(),
+            event.to_account_info(),
+            ctx.accounts.system_program.to_account_info(),
+        ],
+    )?;
     let purchase = &mut ctx.accounts.ticket_purchase;
     purchase.user = *user.key;
     purchase.event_id = event.key();
