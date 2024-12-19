@@ -26,7 +26,7 @@ pub fn handler(ctx: Context<PurchaseTickets>, quantity: u32) -> Result<()> {
         ),
         &[
             ctx.accounts.user.to_account_info(),
-            event.to_account_info(),
+            ctx.accounts.event_organizer.to_account_info(),
             ctx.accounts.system_program.to_account_info(),
         ],
     )?;
@@ -49,6 +49,13 @@ pub struct PurchaseTickets<'info> {
 
     #[account(mut)]
     pub event: Account<'info, EventContract>,
+
+    /// CHECK: This is the event organizer's account that receives payment
+    #[account(
+        mut,
+        constraint = event_organizer.key() == event.organizer
+    )]
+    pub event_organizer: AccountInfo<'info>,
 
     #[account(
         init,
