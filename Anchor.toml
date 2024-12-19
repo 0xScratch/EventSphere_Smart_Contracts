@@ -4,14 +4,17 @@
 resolution = true
 skip-lint = false
 
+[programs.devnet]
+solana_bootcamp_project = "7xrHyiezMLNeraJn8rtEbzQB6BhQwjYZSh6wA4p3sv3c"
+
 [programs.localnet]
-solana_bootcamp_project = "97MbJZuRnS8WFsT3AwC9eQgJNKuCKEyEopyPnhoPuCs2"
+solana_bootcamp_project = "HuR2Lrb9M49TjTqbmH6UW4R9wzgT3sJuEn6wSnvw7aVV"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
