@@ -1,3 +1,5 @@
+mod errors;
+
 use anchor_lang::prelude::*;
 // use anchor_spl::token::{self, Mint, Token};
 
@@ -35,4 +37,12 @@ pub mod solana_bootcamp_project {
             tickets_minted,
         )
     }
+
+    pub fn purchase_tickets(ctx: Context<PurchaseTickets>, quantity: u32) -> Result<()> {
+        instructions::purchase::handler(ctx, quantity)
+    }
+
+    // pub fn get_user_tickets(ctx: Context<GetUserTickets>) -> Result<()> {
+    //     instructions::get_tickets::handler(ctx)
+    // }
 }
