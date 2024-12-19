@@ -5,7 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-solana_bootcamp_project = "7xrHyiezMLNeraJn8rtEbzQB6BhQwjYZSh6wA4p3sv3c"
+solana_bootcamp_project = "2ib7Hs36VGCkK2jrQYhXQmoLo2NroovyfSZf4khDj2qq"
 
 [programs.localnet]
 solana_bootcamp_project = "HuR2Lrb9M49TjTqbmH6UW4R9wzgT3sJuEn6wSnvw7aVV"
